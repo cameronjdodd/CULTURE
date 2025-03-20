@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a2e;
+  color: #e6e6e6;
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #16213e;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: #f1b263;
+}
+
+.game-container {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.game-board {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  background-color: #0f3460;
+}
+
+#gameCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.side-panel {
+  width: 320px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.player-info, .action-panel, .simulation-controls {
+  background-color: #16213e;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.simulation-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.simulation-controls h3 {
+  color: #f1b263;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#runSimulationsBtn {
+  background-color: #3a506b;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}
+
+#runSimulationsBtn:hover {
+  background-color: #5c7a99;
+}
+
+#simulationResults {
+  background-color: #0f3460;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#simulationResults h4 {
+  color: #f1b263;
+  margin-bottom: 10px;
+}
+
+#simulationResults h5 {
+  color: #e6e6e6;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#simulationResults p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #e6e6e6;
+}
+
+.action-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #3a506b;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #5c7a99;
+}
+
+.end-turn-btn {
+  background-color: #e94560;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.end-turn-btn:hover {
+  background-color: #f16783;
+}
+
+.status-bar {
+  margin-top: 10px;
+  background-color: #16213e;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.menu-content {
+  background-color: #16213e;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.menu-title {
+  color: #f1b263;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setup-options {
+  margin-bottom: 20px;
+}
+
+.setup-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.setup-option input {
+  width: 80px;
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+  background-color: #0f3460;
+  color: white;
+}
+
+.resource-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+  padding: 5px;
+  background-color: #0f3460;
+  border-radius: 4px;
+}
+
+.resource-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 8px;
+}
+
+.victory-progress-panel, .ai-personality-panel {
+  background-color: #16213e;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.victory-progress-panel h3, .ai-personality-panel h3 {
+  color: #f1b263;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.culture-card-display {
+  background-color: #16213e;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border-left: 3px solid #f1b263;
+}
+
+.event-log {
+  background-color: #16213e;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+.event-log-title {
+  color: #f1b263;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.event-item {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tutorial-content {
+  background-color: #16213e;
+  color: #e6e6e6;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(241, 178, 99, 0.3);
+  max-width: 600px;
+  max-height: 80vh;
+  overflow: auto;
+  position: relative;
+}
+
+.sim-controls {
+  display: flex;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.sim-speed-label {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
